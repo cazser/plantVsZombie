@@ -18,6 +18,7 @@
 .container{
     width: 900px;
     height: 600px;
+    position: relative;
 }
 
 .advanceButton{
@@ -27,4 +28,31 @@
     width: 300px;
     height: 100px;
     opacity: 0;
+}
+
+
+.battleField{
+    width: 120%;
+}
+
+.frame1{
+    position: absolute;
+    display:  flex;
+}
+.lawn{
+    position: absolute;
+    left:220px;
+    top: 65px;
+}
+.lawn > img{
+    margin: -15px;
+    width: 630px;
+    height: 109px;
+}
+
+.plantSlot{
+    margin-left: 100px;
+    width: 300px;
+    height: 100px;
+    border: 1px solid red;
 }
