@@ -4,15 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
 <body>
-    <script src="https://unpkg.com/petite-vue" defer init></script>
-    <div v-scope="{ welcome: true }">
-  <div v-if="welcome">
-    <img src="./imgs/welcome.PNG">
+    <!--<script src="https://unpkg.com/petite-vue" defer init></script>-->
+  
+
+  <script type="module">
+    import { createApp } from 'https://unpkg.com/petite-vue?module'
+
+    createApp({
+    // exposed to all expressions
+      welcome: true, 
+      playground: false, 
+      menu: false,
+      onStartClick(){
+        this.welcome = false;
+        this.menu = true;
+      },
+      advanceClick(){
+        this.menu = false;
+        this.playground = true;
+      }
+    }).mount("#app")
+    </script>
+    <div v-scope id="app" class="app" >
+      <div v-if="welcome" class="container" >
+        <img src="./imgs/welcome.PNG">
+        <button @click="onStartClick" class="startButton">开始游戏</button>
     </div>
-  <button @click="welcome=false">开始游戏</button>
-</div>
+    <div v-if="menu" class="container">
+      <img src="./imgs/menu.PNG">
+      <button class="advanceButton" @click="advanceClick">开始冒险</button>
+    </div>
+    <div v-if="playground">
+      playground
+    </div>
+  
+    </div>
+<style>
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  img{
+    max-width: 100%;
+  }
+</style>
 </body>
 </html>
