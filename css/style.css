@@ -61,11 +61,52 @@
 .playGroundMask td{
     width: 75px;
     height: 92px;
+    position: relative;
     /*border: 1px solid;*/
 }
 
 .zombie{
-    height: 130px;
-    width: 100px;
-    transform: translateY(-60px);
+    height: 150px;
+    width: 130px;
+    transform: translateY(-120px);
+    position: absolute;
 }
+
+.offset1{
+    right: 10px;
+}
+
+.offset2{
+    right: 20px;
+}
+
+
+.offset3{
+    right: 30px;
+}
+
+.offset4{
+    right: 40px;
+}
+
+.offset5{
+    right: 50px;
+}
+
+.offset6{
+    right: 60px;
+}
+
+
+.offset7{
+    right: 70px;
+}
+
+.offset8{
+    right: 80px;
+}
+
+.offset9{
+    right: 90px;
+}
+
