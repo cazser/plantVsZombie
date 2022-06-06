@@ -65,6 +65,7 @@
 }
 
 .zombie{
-    height: 120px;
-    transform: translateY(-30px);
+    height: 130px;
+    width: 100px;
+    transform: translateY(-60px);
 }
