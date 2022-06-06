@@ -33,6 +33,7 @@
 
 .battleField{
     width: 120%;
+    /*transform: translateX(50px);*/
 }
 
 .frame1{
@@ -50,9 +51,15 @@
     height: 109px;
 }
 
-.plantSlot{
-    margin-left: 100px;
-    width: 300px;
-    height: 100px;
-    border: 1px solid red;
+
+.playGroundMask{
+    position: absolute;
+ left:120px;
+    top: 65px;
+}
+
+.playGroundMask td{
+    width: 75px;
+    height: 90px;
+    border: 1px solid;
 }
