@@ -64,6 +64,8 @@
     height: 92px;
     position: relative;
     border: 1px solid;
+    /*overflow: hidden;*/
+    overflow-y: hidden;
 }
 
 .zombie{

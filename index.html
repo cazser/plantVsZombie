@@ -41,7 +41,7 @@
       
     <img src="./imgs/background2.jpg"> 
     <table class="playGroundMask">
-      <tbody>
+      <tbody @click="onTableClick">
        
         <tr v-for="row in rows">
           <td v-for="col in cols">
@@ -106,11 +106,21 @@
       selectPlant(e){
         //console.log(e.target.getAttribute("type"));
         this.domObj=document.createElement('img');
-        this.domObj.src="./imgs/"+ e.target.getAttribute("type") +"1"+".gif";
-        document.querySelector("#playground").appendChild(this.domObj);
+        this.domObj.src="./imgs/"+ e.target.getAttribute("type") +".gif";
+        //document.querySelector("#playground").appendChild(this.domObj);
+        //this.domObj.style="position: absolute;";
+        this.domObj.style.clip='rect(auto, auto, 74px, auto)';
+        //this.domObj.style.top = e.pageY;
+      },
+      onTableClick(e){
+        console.log(e.target)
+        if(this.domObj!=={}){
+          e.target?.appendChild(this.domObj);
+          this.domObj={};
+        }
       },
       onMouseMove(){
-        
+
       }
     }).mount("#app")
     </script>
