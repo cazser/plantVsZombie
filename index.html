@@ -47,6 +47,7 @@
           <td v-for="col in cols" v-bind:col="col" v-bind:row="row">
             <img src="./imgs/Zombie.gif" v-if="checkZombie(row, col)" class="zombie" v-bind:class="offsetRight">
             <div v-if="checkPlant(row, col)" class="plant SunFlower" />
+            <img src="./imgs/Sun.gif" @click="onClickSun" >
           </td>
         </tr>
       </tbody>
@@ -70,6 +71,9 @@
       zombies:[{row: 5, col:9}],
       plants:[],
       offsetRight:{} ,
+      onClickSun(){
+        this.sun+= 25;
+      },
       onStartClick(){
         this.welcome = false;
         this.menu = true;
