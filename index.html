@@ -117,9 +117,9 @@
       },
       selectPlant(e){
         if(this.selectedPlant){
-          this.selectPlant={}
+          this.selectedPlant={}
         }
-        this.selectPlant={kind: e.target.getAttribute("type")}
+        this.selectedPlant={kind: e.target.getAttribute("type")}
       },
       onTableClick(e){
         /*
@@ -129,11 +129,11 @@
           this.domObj={};
         }
         */
-       if(this.selectPlant){
-         this.selectPlant.col = Number.parseInt( e.target.getAttribute("col"));
-          this.selectPlant.row =  Number.parseInt( e.target.getAttribute("row"));
-          this.plants.push(this.selectPlant);
-          this.selectPlant=null;
+       if(this.selectedPlant){
+         this.selectedPlant.col = Number.parseInt( e.target.getAttribute("col"));
+          this.selectedPlant.row =  Number.parseInt( e.target.getAttribute("row"));
+          this.plants.push(this.selectedPlant);
+          this.selectedPlant=null;
        }
         console.log( e.target.getAttribute("col"), e.target.getAttribute("row"));
       },
