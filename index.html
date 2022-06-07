@@ -18,7 +18,9 @@
       <img src="./imgs/menu.PNG">
       <button class="advanceButton" @click="advanceClick">开始冒险</button>
     </div>
-    <div v-if="playground" class="container" >
+    <div v-if="playground" id="playground" class="container" 
+      @mousemove="onMouseMove"
+    >
     
       <div id="sunBack">
           <img src="./imgs/SunBack.png">
@@ -28,11 +30,11 @@
        
         <ul @click="selectPlant">
           <li>
-          <img src="./imgs/Peashooter1.png" >
+          <img type="PeaShooter" src="./imgs/Peashooter1.png" >
           
           </li>
           <li>
-            <img src="./imgs/SunFlower1.png">
+            <img type="SunFlower" src="./imgs/SunFlower1.png">
           </li>
         </ul>
       </div>
@@ -61,6 +63,7 @@
       playground: false, 
       menu: false,
       sun: 25,
+      domObj:{},
       cols:[1,2,3,4,5,6,7,8,9],
       rows:[1,2,3,4,5],
       zombies:[{row: 5, col:9}],
@@ -80,7 +83,8 @@
           count=(count%9)+1;
           if(count===1){
             this.zombies.forEach((zz)=>{zz.col--;
-            console.log(zz.col)})
+            //console.log(zz.col)
+            })
           }
           this.offsetRight={["offset"+count.toString()]: true};
           
@@ -100,7 +104,13 @@
         return flag;
       },
       selectPlant(e){
-        console.log(e.target);
+        //console.log(e.target.getAttribute("type"));
+        this.domObj=document.createElement('img');
+        this.domObj.src="./imgs/"+ e.target.getAttribute("type") +"1"+".gif";
+        document.querySelector("#playground").appendChild(this.domObj);
+      },
+      onMouseMove(){
+        
       }
     }).mount("#app")
     </script>
