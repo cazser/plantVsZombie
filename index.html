@@ -9,7 +9,48 @@
 </head>
 <body>
     <!--<script src="https://unpkg.com/petite-vue" defer init></script>-->
+    <div v-scope id="app" class="app" >
+      <div v-if="welcome" class="container" >
+        <img src="./imgs/welcome.PNG">
+        <button @click="onStartClick" class="startButton">开始游戏</button>
+    </div>
+    <div v-if="menu" class="container">
+      <img src="./imgs/menu.PNG">
+      <button class="advanceButton" @click="advanceClick">开始冒险</button>
+    </div>
+    <div v-if="playground" class="container" >
+    
+      <div id="sunBack">
+          <img src="./imgs/SunBack.png">
+        <span>{{sun}}</span>
+        </div>
+      <div class="plantSlot">
+       
+        <ul @click="selectPlant">
+          <li>
+          <img src="./imgs/Peashooter1.png" >
+          
+          </li>
+          <li>
+            <img src="./imgs/SunFlower1.png">
+          </li>
+        </ul>
+      </div>
+      
+    <img src="./imgs/background2.jpg"> 
+    <table class="playGroundMask">
+      <tbody>
+       
+        <tr v-for="row in rows">
+          <td v-for="col in cols">
+            <img src="./imgs/Zombie.gif" v-if="checkZombie(row, col)" class="zombie" v-bind:class="offsetRight">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
   
+    </div>
 
   <script type="module">
     import { createApp } from 'https://unpkg.com/petite-vue?module'
@@ -57,50 +98,13 @@
           }
         }
         return flag;
+      },
+      selectPlant(e){
+        console.log(e.target);
       }
     }).mount("#app")
     </script>
-    <div v-scope id="app" class="app" >
-      <div v-if="welcome" class="container" >
-        <img src="./imgs/welcome.PNG">
-        <button @click="onStartClick" class="startButton">开始游戏</button>
-    </div>
-    <div v-if="menu" class="container">
-      <img src="./imgs/menu.PNG">
-      <button class="advanceButton" @click="advanceClick">开始冒险</button>
-    </div>
-    <div v-if="playground" class="container" >
-    
-      <div id="sunBack">
-          <img src="./imgs/SunBack.png">
-        <span>{{sun}}</span>
-        </div>
-      <div class="plantSlot">
-       
-        <ul>
-          <li>
-          <img src="./imgs/Peashooter1.png">
-          </li>
-          <li>
-            向日葵
-          </li>
-        </ul>
-      </div>
-      
-    <img src="./imgs/background2.jpg"> 
-    <table class="playGroundMask">
-      <tbody>
-       
-        <tr v-for="row in rows">
-          <td v-for="col in cols">
-            <img src="./imgs/Zombie.gif" v-if="checkZombie(row, col)" class="zombie" v-bind:class="offsetRight">
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
   
-    </div>
 <style>
   *{
     padding: 0;
