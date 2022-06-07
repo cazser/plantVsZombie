@@ -19,6 +19,7 @@
       welcome: true, 
       playground: false, 
       menu: false,
+      sun: 25,
       cols:[1,2,3,4,5,6,7,8,9],
       rows:[1,2,3,4,5],
       zombies:[{row: 5, col:9}],
@@ -34,14 +35,17 @@
         setInterval(()=>{
           this.offsetRight={};
           count++;
+        
           count=(count%9)+1;
-          this.offsetRight={["offset"+count.toString()]: true};
-          if(count===9){
+          if(count===1){
             this.zombies.forEach((zz)=>{zz.col--;
             console.log(zz.col)})
           }
+          this.offsetRight={["offset"+count.toString()]: true};
+          
+          
           //console.log(this.$refs['zombie']);
-        }, 1000);
+        }, 200);
 
       },
       checkZombie(row, col){
@@ -66,6 +70,23 @@
       <button class="advanceButton" @click="advanceClick">开始冒险</button>
     </div>
     <div v-if="playground" class="container" >
+    
+      <div id="sunBack">
+          <img src="./imgs/SunBack.png">
+        <span>{{sun}}</span>
+        </div>
+      <div class="plantSlot">
+       
+        <ul>
+          <li>
+          <img src="./imgs/Peashooter1.png">
+          </li>
+          <li>
+            向日葵
+          </li>
+        </ul>
+      </div>
+      
     <img src="./imgs/background2.jpg"> 
     <table class="playGroundMask">
       <tbody>
@@ -88,6 +109,9 @@
   }
   img{
     max-width: 100%;
+  }
+  ul,ol{
+    list-style: none;
   }
 </style>
 </body>

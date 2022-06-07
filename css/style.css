@@ -56,13 +56,14 @@
     position: absolute;
  left:120px;
     top: 65px;
+    
 }
 
 .playGroundMask td{
     width: 75px;
     height: 92px;
     position: relative;
-    /*border: 1px solid;*/
+    border: 1px solid;
 }
 
 .zombie{
@@ -72,41 +73,65 @@
     position: absolute;
 }
 
+.plantSlot{
+    position: absolute;
+    left: 10px;
+}
+
+.plantSlot li{
+    /*border: 5px solid red;*/
+}
+
+
+#sunBack{
+    
+    position: absolute;
+    left: 120px;
+    top: 10px;
+}
+
+#sunBack > span{
+    position: absolute;
+    right: 30px;
+    font-size: 24px;
+}
+
+
 .offset1{
-    right: 10px;
+    right: 5px;
 }
 
 .offset2{
-    right: 20px;
+    right: 10px;
 }
 
 
 .offset3{
-    right: 30px;
+    right: 15px;
 }
 
 .offset4{
-    right: 40px;
+    right: 20px;
 }
 
 .offset5{
-    right: 50px;
+    right: 25px;
 }
 
 .offset6{
-    right: 60px;
+    right: 30px;
 }
 
 
 .offset7{
-    right: 70px;
+    right: 35px;
 }
 
 .offset8{
-    right: 80px;
+    right: 40px;
 }
 
 .offset9{
-    right: 90px;
+    right: 45px;
 }
 
