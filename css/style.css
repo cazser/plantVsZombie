@@ -54,7 +54,7 @@
 
 .playGroundMask{
     position: absolute;
- left:120px;
+    left:120px;
     top: 65px;
     
 }
@@ -65,7 +65,7 @@
     position: relative;
     border: 1px solid;
     /*overflow: hidden;*/
-    overflow-y: hidden;
+    /*overflow-y: hidden;*/
 }
 
 .zombie{

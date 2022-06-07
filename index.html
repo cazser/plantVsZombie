@@ -105,19 +105,25 @@
       },
       selectPlant(e){
         //console.log(e.target.getAttribute("type"));
-        this.domObj=document.createElement('img');
-        this.domObj.src="./imgs/"+ e.target.getAttribute("type") +".gif";
+       /* this.domObj=document.createElement('span');
+        this.domObj.style.background=`url(./imgs/${e.target.getAttribute("type")}.gif) onrepeat 0 0`;
+        this.domObj.style.width="75";
+    console.log(this.domObj);
+        this.domObj.style.height="90";
+        */
         //document.querySelector("#playground").appendChild(this.domObj);
         //this.domObj.style="position: absolute;";
-        this.domObj.style.clip='rect(auto, auto, 74px, auto)';
+        //this.domObj.style.clip='rect(auto, auto, 74px, auto)';
         //this.domObj.style.top = e.pageY;
       },
       onTableClick(e){
+        /*
         console.log(e.target)
         if(this.domObj!=={}){
-          e.target?.appendChild(this.domObj);
+          e.target?.append(this.domObj);
           this.domObj={};
         }
+        */
       },
       onMouseMove(){
 
