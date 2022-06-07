@@ -98,6 +98,11 @@
     font-size: 24px;
 }
 
+.plant{
+    width: 70px;
+    height: 75px;
+}
+
 
 .offset1{
     right: 5px;
@@ -137,3 +142,6 @@
     right: 45px;
 }
 
+.SunFlower{
+    background: url(../imgs/SunFlower.gif);
+}
