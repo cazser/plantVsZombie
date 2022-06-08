@@ -44,8 +44,12 @@
     <ol class="rails">
       
       <li v-for="row in rows">
-        <img v-for="zowbie in zombies" 
-             src="./imgs/Zombie.gif" class="zombie">
+        <div v-for="zombie in zombies" >
+           <img v-if="zombie.row===row"
+             src="./imgs/Zombie.gif" class="zombie" v-bind:right="zombie.right">
+          
+        </div>
+       
       </li>
     </ol>
   
@@ -78,7 +82,7 @@
       selectedPlant:null,
       cols:[1,2,3,4,5,6,7,8,9],
       rows:[1,2,3,4,5],
-      zombies:[{row: 5}],
+      zombies:[{row: 5, right:'100px'}, {row:1, right: '50px'}],
       plants:[],
       offsetRight:{} ,
       onClickSun(){
