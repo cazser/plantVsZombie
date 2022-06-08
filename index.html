@@ -40,18 +40,28 @@
       </div>
       
     <img src="./imgs/background2.jpg"> 
+    
+    <ol class="rails">
+      
+      <li v-for="row in rows">
+        <img v-for="zowbie in zombies" 
+             src="./imgs/Zombie.gif" class="zombie">
+      </li>
+    </ol>
+  
     <table class="playGroundMask">
       <tbody @click="onTableClick">
        
         <tr v-for="row in rows">
           <td v-for="col in cols" v-bind:col="col" v-bind:row="row">
-            <img src="./imgs/Zombie.gif" v-if="checkZombie(row, col)" class="zombie" v-bind:class="offsetRight">
+            <!--<img src="./imgs/Zombie.gif" v-if="checkZombie(row, col)" class="zombie" v-bind:class="offsetRight">-->
             <div v-if="checkPlant(row, col)" class="plant SunFlower" />
             <!--<img src="./imgs/Sun.gif" @click="onClickSun" > -->
           </td>
         </tr>
       </tbody>
     </table>
+    
     </div>
   
     </div>
@@ -68,7 +78,7 @@
       selectedPlant:null,
       cols:[1,2,3,4,5,6,7,8,9],
       rows:[1,2,3,4,5],
-      zombies:[{row: 5, col:9}],
+      zombies:[{row: 5}],
       plants:[],
       offsetRight:{} ,
       onClickSun(){
@@ -82,7 +92,7 @@
         this.menu = false;
         this.playground = true;
         let count = 1;
-        setInterval(()=>{
+        /*setInterval(()=>{
           this.offsetRight={};
           count++;
         
@@ -97,9 +107,10 @@
           
           //console.log(this.$refs['zombie']);
         }, 200);
+        */
 
       },
-      checkZombie(row, col){
+      /*checkZombie(row, col){
         let flag = false;
         for(let i=0; i<this.zombies.length; i++){
           if(this.zombies[i].row === row && 
@@ -109,6 +120,7 @@
         }
         return flag;
       },
+      */
       checkPlant(row, col){
         let flag = false;
         for(let i=0; i<this.plants.length; i++){

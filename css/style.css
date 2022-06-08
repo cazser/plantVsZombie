@@ -71,8 +71,9 @@
 .zombie{
     height: 150px;
     width: 130px;
-    transform: translateY(-120px);
+    transform:translateY( -60px);
     position: absolute;
+    right: 0;
 }
 
 .plantSlot{
@@ -124,7 +125,7 @@
 .offset5{
     right: 25px;
 }
-
+/*
 .offset6{
     right: 30px;
 }
@@ -141,7 +142,20 @@
 .offset9{
     right: 45px;
 }
-
+*/
 .SunFlower{
     background: url(../imgs/SunFlower.gif);
+}
+
+.rails li{
+    border: 1px solid red;
+    height: 93px;
+    width: 700px;
+
+}
+
+.rails{
+    position: absolute;
+    top: 70px;
+    left: 120px;
 }
