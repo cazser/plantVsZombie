@@ -60,7 +60,7 @@
         <tr v-for="row in rows">
           <td v-for="col in cols" v-bind:col="col" v-bind:row="row">
             
-            <div  v-if="checkPlant(row, col)" class="plant SunFlower" >
+            <div  v-if="checkPlant(row, col)" class="plant" v-bind:class="plantKind(row, col)" >
             
             </div> 
           </td>
@@ -134,6 +134,15 @@
         return flag;
       },
       */
+     plantKind(row, col){
+      let kind="";
+      this.plants.forEach((plant)=>{
+        if(plant.row === row && plant.col === col){
+          kind = plant.kind;
+        }
+      })
+      return kind;
+     },
       checkPlant(row, col){
         let flag = false;
         for(let i=0; i<this.plants.length; i++){
@@ -144,6 +153,7 @@
         }
         return flag;
       },
+      
       selectPlant(e){
         if(this.selectedPlant){
           this.selectedPlant={}

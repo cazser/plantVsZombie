@@ -109,7 +109,9 @@
 .SunFlower{
     background: url(../imgs/SunFlower.gif);
 }
-
+.PeaShooter{
+    background: url(../imgs/Peashooter.gif);
+}
 .rails li{
     border: 1px solid red;
     height: 93px;
