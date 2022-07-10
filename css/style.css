@@ -63,7 +63,6 @@
     width: 75px;
     height: 92px;
     position: relative;
-    border: 1px solid;
     /*overflow: hidden;*/
     /*overflow-y: hidden;*/
 }
@@ -113,10 +112,9 @@
     background: url(../imgs/Peashooter.gif);
 }
 .rails li{
-    border: 1px solid red;
     height: 93px;
     width: 700px;
-
+border: 1px solid red;
 }
 
 .rails{
