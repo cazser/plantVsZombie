@@ -43,6 +43,7 @@
       
     <img src="./imgs/background2.jpg"> 
     
+<<<<<<< HEAD
     <ol class="horizonRails">
       <li v-for="row in rows">
         <ul v-for="zombie in zombies">
@@ -59,6 +60,35 @@
         </ul>
       </li>
     </ol>
+=======
+    <ol class="rails">
+      
+      <li v-for="row in rows">
+        <div v-for="zombie in zombies" >
+           <img v-if="zombie.row===row"
+             src="./imgs/Zombie.gif" class="zombie"
+             v-bind:class="'Right'+zombie.right">
+          
+        </div>
+       
+      </li>
+    </ol>
+  
+    <table class="playGroundMask">
+      <tbody @click="onTableClick">
+       
+        <tr v-for="row in rows">
+          <td v-for="col in cols" v-bind:col="col" v-bind:row="row">
+            
+            <div  v-if="checkPlant(row, col)" class="plant" v-bind:class="plantKind(row, col)" >
+            
+            </div> 
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+>>>>>>> 0105aefe918fd6e2d1a5d6238daa67bb0cbbd55d
     </div>
   
     </div>
@@ -75,10 +105,18 @@
       selectedPlant:null,
       cols:[1,2,3,4,5,6,7,8,9],
       rows:[1,2,3,4,5],
+<<<<<<< HEAD
       zombies:[{row: 5, right:"Right1"}],
       sunshines:[{col: 1, top:"Top1"}],
+=======
+      zombies:[{row: 5, right:100}, {row:1, right: 0}],
+>>>>>>> 0105aefe918fd6e2d1a5d6238daa67bb0cbbd55d
       plants:[],
+      sunShine:[],
       offsetRight:{} ,
+      onClickSun(){
+        this.sun+= 25;
+      },
       onStartClick(){
         this.welcome = false;
         this.menu = true;
@@ -87,6 +125,7 @@
         this.menu = false;
         this.playground = true;
         let count = 1;
+<<<<<<< HEAD
        setInterval(()=>{
          //console.log(1);
          for(let i=0; i<this.zombies.length; i++){
@@ -94,11 +133,38 @@
           num++;
            this.zombies[i].right=`Right${num}`
            //console.log(this.zombies[i].right);
+=======
+        /*setInterval(()=>{
+          this.offsetRight={};
+          count++;
+        
+          count=(count%9)+1;
+          if(count===1){
+            this.zombies.forEach((zz)=>{zz.col--;
+            //console.log(zz.col)
+            })
+          }
+          this.offsetRight={["offset"+count.toString()]: true};
+          
+          
+          //console.log(this.$refs['zombie']);
+        }, 200);
+        */
+       setInterval(()=>{
+        this.zombies.forEach((zombie)=>{
+          if(zombie.right<701){
+            zombie.right++;
+          }
+        })
+
+       }, 100)
+>>>>>>> 0105aefe918fd6e2d1a5d6238daa67bb0cbbd55d
 
          }
         }, 200);
       
       },
+<<<<<<< HEAD
       checkZombie(row, zombie){
         //console.log(zombie);
         return zombie.row === row;
@@ -106,6 +172,28 @@
       checkSunshine(col, sunshine){
         return sunshine.col === col;
       } ,     
+=======
+      /*checkZombie(row, col){
+        let flag = false;
+        for(let i=0; i<this.zombies.length; i++){
+          if(this.zombies[i].row === row && 
+             this.zombies[i].col === col){
+            flag = true;
+          }
+        }
+        return flag;
+      },
+      */
+     plantKind(row, col){
+      let kind="";
+      this.plants.forEach((plant)=>{
+        if(plant.row === row && plant.col === col){
+          kind = plant.kind;
+        }
+      })
+      return kind;
+     },
+>>>>>>> 0105aefe918fd6e2d1a5d6238daa67bb0cbbd55d
       checkPlant(row, col){
         let flag = false;
         for(let i=0; i<this.plants.length; i++){
@@ -116,26 +204,27 @@
         }
         return flag;
       },
+      
       selectPlant(e){
         if(this.selectedPlant){
-          this.selectPlant={}
+          this.selectedPlant={}
         }
-        this.selectPlant={kind: e.target.getAttribute("type")}
-      },
+        console.log(e.target.getAttribute("type"))
+
+        this.selectedPlant={kind: e.target.getAttribute("type")}
+        console.log(this.selectedPlant)
+        },
       onTableClick(e){
-        /*
-        console.log(e.target)
-        if(this.domObj!=={}){
-          e.target?.append(this.domObj);
-          this.domObj={};
-        }
-        */
-       if(this.selectPlant){
-         this.selectPlant.col = Number.parseInt( e.target.getAttribute("col"));
-          this.selectPlant.row =  Number.parseInt( e.target.getAttribute("row"));
-          this.plants.push(this.selectPlant);
-          this.selectPlant=null;
+        
+      
+        
+       if(this.selectedPlant){
+         this.selectedPlant.col = Number.parseInt( e.target.getAttribute("col"));
+          this.selectedPlant.row =  Number.parseInt( e.target.getAttribute("row"));
+          this.plants.push(this.selectedPlant);
+          this.selectedPlant=null;
        }
+       console.log(this.plants)
         console.log( e.target.getAttribute("col"), e.target.getAttribute("row"));
       },
       onMouseMove(){
