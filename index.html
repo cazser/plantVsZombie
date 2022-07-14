@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/Zombie.css">
+    <link rel="stylesheet" href="./css/sunshine.css">
     <title>Plants VS Zombie</title>
 </head>
 <body>
@@ -40,17 +42,23 @@
       </div>
       
     <img src="./imgs/background2.jpg"> 
-    <table class="playGroundMask">
-      <tbody @click="onTableClick">
-       
-        <tr v-for="row in rows">
-          <td v-for="col in cols" v-bind:col="col" v-bind:row="row">
-            <img src="./imgs/Zombie.gif" v-if="checkZombie(row, col)" class="zombie" v-bind:class="offsetRight">
-            <div v-if="checkPlant(row, col)" class="plant SunFlower" />
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    
+    <ol class="horizonRails">
+      <li v-for="row in rows">
+        <ul v-for="zombie in zombies">
+        <img v-if="checkZombie(row, zombie)" class="zombie" src="./imgs/Zombie.gif"
+        v-bind:class="zombie.right">
+        </ul>
+      </li>
+    </ol>
+    <ol class="verticalRails">
+      <li v-for="col in cols">
+        <ul v-for="sunshine in sunshines">
+          <img v-if="checkSunshine(col, sunshine)" class="sunshine"
+          v-bind:class="sunshine.top" src="imgs/Sun.gif">
+        </ul>
+      </li>
+    </ol>
     </div>
   
     </div>
@@ -67,7 +75,8 @@
       selectedPlant:null,
       cols:[1,2,3,4,5,6,7,8,9],
       rows:[1,2,3,4,5],
-      zombies:[{row: 5, col:9}],
+      zombies:[{row: 5, right:"Right1"}],
+      sunshines:[{col: 1, top:"Top1"}],
       plants:[],
       offsetRight:{} ,
       onStartClick(){
@@ -78,33 +87,25 @@
         this.menu = false;
         this.playground = true;
         let count = 1;
-        setInterval(()=>{
-          this.offsetRight={};
-          count++;
-        
-          count=(count%9)+1;
-          if(count===1){
-            this.zombies.forEach((zz)=>{zz.col--;
-            //console.log(zz.col)
-            })
-          }
-          this.offsetRight={["offset"+count.toString()]: true};
-          
-          
-          //console.log(this.$refs['zombie']);
-        }, 200);
+       setInterval(()=>{
+         //console.log(1);
+         for(let i=0; i<this.zombies.length; i++){
+          let num =Number.parseInt( this.zombies[i].right.replace("Right", "") );
+          num++;
+           this.zombies[i].right=`Right${num}`
+           //console.log(this.zombies[i].right);
 
+         }
+        }, 200);
+      
       },
-      checkZombie(row, col){
-        let flag = false;
-        for(let i=0; i<this.zombies.length; i++){
-          if(this.zombies[i].row === row && 
-             this.zombies[i].col === col){
-            flag = true;
-          }
-        }
-        return flag;
+      checkZombie(row, zombie){
+        //console.log(zombie);
+        return zombie.row === row;
       },
+      checkSunshine(col, sunshine){
+        return sunshine.col === col;
+      } ,     
       checkPlant(row, col){
         let flag = false;
         for(let i=0; i<this.plants.length; i++){

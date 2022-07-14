@@ -68,12 +68,7 @@
     /*overflow-y: hidden;*/
 }
 
-.zombie{
-    height: 150px;
-    width: 130px;
-    transform: translateY(-120px);
-    position: absolute;
-}
+
 
 .plantSlot{
     position: absolute;
@@ -145,3 +140,28 @@
 .SunFlower{
     background: url(../imgs/SunFlower.gif);
 }
+
+.horizonRails >li{
+    border: 1px solid blue;
+    height: 95px;
+    width: 850px;
+}
+.horizonRails{
+    position: absolute;
+    top: 70px;
+    left: 120px;
+}
+
+.verticalRails{
+    display: flex;
+    position: absolute;
+    top: 0px;    
+    left: 120px;
+}
+
+.verticalRails >li{
+    border: 1px solid red;
+    height: 540px;
+    width: 77px;
+}
+
